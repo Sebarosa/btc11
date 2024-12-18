@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compteur de Connexions</title>
+
+    <!-- Plausible Analytics -->
+    <script async defer data-domain="sebarosa.github.io" src="https://plausible.io/js/plausible.js"></script>
+
+    <!-- Styles -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,22 +21,36 @@
             font-weight: bold;
             color: green;
         }
-        #log-container {
-            margin-top: 20px;
-        }
-        p.log-entry {
-            font-size: 0.9em;
-            color: #555;
-            margin: 5px 0;
-        }
     </style>
 </head>
 <body>
-    <h1>Bienvenue sur notre site !</h1>
-    <p>Nombre de connexions : <span id="counter">0</span></p>
-    <h2>Historique des connexions :</h2>
-    <div id="log-container"></div>
+    <h1>Bienvenue sur le site !</h1>
+    <p>Nombre total de connexions : <span id="counter">0</span></p>
 
-    <script src="update.js"></script>
+    <script>
+        // Fonction pour gérer et mettre à jour le compteur de connexions avec LocalStorage
+        function updateConnectionCount() {
+            // Vérification de support de localStorage
+            if (!window.localStorage) {
+                alert("Votre navigateur ne supporte pas le stockage local.");
+                return;
+            }
+
+            // Récupération ou initialisation du compteur de connexions
+            let connectionCount = parseInt(localStorage.getItem('connectionCount')) || 0;
+            
+            // Incrémentation du compteur
+            connectionCount++;
+            
+            // Sauvegarde dans localStorage
+            localStorage.setItem('connectionCount', connectionCount);
+
+            // Mise à jour de l'affichage
+            document.getElementById('counter').textContent = connectionCount;
+        }
+
+        // Appel de la fonction au chargement de la page pour mettre à jour le compteur
+        updateConnectionCount();
+    </script>
 </body>
 </html>
