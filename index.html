@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compteur de Connexions</title>
 
-    <!-- Plausible Analytics - Script -->
-    <script async defer data-domain="sebarosa.github.io" src="https://plausible.io/js/plausible.js"></script>
+    <!-- Simple Analytics - Script -->
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+    <noscript>Simple Analytics n'a pas pu se charger car JavaScript est désactivé.</noscript>
 
     <!-- Styles -->
     <style>
@@ -34,23 +36,4 @@
             if (!window.localStorage) {
                 alert("Votre navigateur ne supporte pas le stockage local.");
                 return;
-            }
-
-            // Récupération ou initialisation du compteur de connexions
-            let connectionCount = parseInt(localStorage.getItem('connectionCount')) || 0;
-            
-            // Incrémentation du compteur
-            connectionCount++;
-            
-            // Sauvegarde dans localStorage
-            localStorage.setItem('connectionCount', connectionCount);
-
-            // Mise à jour de l'affichage
-            document.getElementById('counter').textContent = connectionCount;
-        }
-
-        // Appel de la fonction au chargement de la page pour mettre à jour le compteur
-        updateConnectionCount();
-    </script>
-</body>
-</html>
+        
