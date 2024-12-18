@@ -32,44 +32,6 @@
     <h2>Historique des connexions :</h2>
     <div id="log-container"></div>
 
-    <script>
-        // Fonction principale pour gérer le compteur et les logs
-        function manageConnections() {
-            // Vérification basique de support de localStorage
-            if (!window.localStorage) {
-                document.body.innerHTML = "<p>Votre navigateur ne supporte pas le stockage local.</p>";
-                return;
-            }
-
-            // Récupérer ou initialiser les données dans localStorage
-            let connectionCount = parseInt(localStorage.getItem('connectionCount')) || 0;
-            let connectionLogs = JSON.parse(localStorage.getItem('connectionLogs')) || [];
-
-            // Incrémenter le compteur et ajouter un log avec la date actuelle
-            connectionCount++;
-            let currentDate = new Date().toLocaleString('fr-FR');
-            connectionLogs.push(currentDate);
-
-            // Sauvegarder les nouvelles données
-            localStorage.setItem('connectionCount', connectionCount);
-            localStorage.setItem('connectionLogs', JSON.stringify(connectionLogs));
-
-            // Mettre à jour l'affichage
-            document.getElementById('counter').textContent = connectionCount;
-
-            // Afficher l'historique
-            let logContainer = document.getElementById('log-container');
-            logContainer.innerHTML = ""; // Réinitialise le contenu
-            connectionLogs.forEach(log => {
-                let logEntry = document.createElement('p');
-                logEntry.classList.add('log-entry');
-                logEntry.textContent = log;
-                logContainer.appendChild(logEntry);
-            });
-        }
-
-        // Appel de la fonction au chargement de la page
-        manageConnections();
-    </script>
+    <script src="update.js"></script>
 </body>
 </html>
