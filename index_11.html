@@ -1,39 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compteur de Connexions</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Bienvenue sur notre site</h1>
-    <p>Nombre de connexions : <span id="counter">0</span></p>
-    <h2>Historique des connexions :</h2>
-    <div id="log-container"></div>
-
-    <script>
-        // Vérifie si le stockage local est pris en charge
-        if (typeof(Storage) !== "undefined") {
-            let connectionCount = localStorage.getItem('connectionCount') || 0;
-            let connectionLogs = JSON.parse(localStorage.getItem('connectionLogs')) || [];
-
-            connectionCount++;
-            connectionLogs.push(new Date().toLocaleString());
-
-            localStorage.setItem('connectionCount', connectionCount);
-            localStorage.setItem('connectionLogs', JSON.stringify(connectionLogs));
-
-            document.getElementById('counter').textContent = connectionCount;
-
-            let logContainer = document.getElementById('log-container');
-            connectionLogs.forEach(log => {
-                let logElement = document.createElement('div');
-                logElement.textContent = log;
-                logContainer.appendChild(logElement);
-            });
-        } else {
-            alert("Le stockage local n'est pas pris en charge par votre navigateur.");
-        }
-    </script>
+   <h1>HELLO</h1> 
 </body>
 </html>
